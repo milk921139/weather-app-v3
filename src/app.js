@@ -133,6 +133,10 @@ form.addEventListener("submit", handleSubmit);
 
 search("New York");
 
+fahrenheitLink.addEventListener("click", showfahrTemp);
+celsiusLink.addEventListener("click", showcelsiusTemp);
+currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
+  
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -150,3 +154,5 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+  
