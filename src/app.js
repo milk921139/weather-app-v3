@@ -128,7 +128,13 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-   //convert  to farh units
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
+
+
+    //convert  to farh units
     function showFahrTemp(event) {
         event.preventDefault();
         let fahrTemp = (celsiusTemp * 9) / 5 + 32;
@@ -151,5 +157,3 @@ function handleSubmit(event) {
     celsiusLink.addEventListener("click", showCelsiusTemp);
     form.addEventListener("submit", handleSubmit);
     currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
-    search("London");
-  
