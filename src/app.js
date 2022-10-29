@@ -99,7 +99,7 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
-   function showfahrTemp(event) {
+   function showFahrTemp(event) {
         event.preventDefault();
         let fahrTemp = (celsiusTemp * 9) / 5 + 32;
         tempElement.innerHTML = Math.round(fahrTemp);
@@ -109,7 +109,7 @@ function displayTemperature(response) {
     }
 
     //convert  to celsius units
-    function showcelsiusTemp(event) {
+    function showCelsiusTemp(event) {
         event.preventDefault();
         tempElement.innerHTML = Math.round(celsiusTemp);
         celsiusLink.classList.add("active");
@@ -128,29 +128,32 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
-    function showfahrTemp(event) {
-        event.preventDefault();
-        let fahrTemp = (celsiusTemp * 9) / 5 + 32;
-        tempElement.innerHTML = Math.round(fahrTemp);
-        //remove the active class celsius link
-        celsiusLink.classList.remove("active");
-        fahrenheitLink.classList.add("active");
-    }
+search("New York");
 
-    
-    function showcelsiusTemp(event) {
-        event.preventDefault();
-        tempElement.innerHTML = Math.round(celsiusTemp);
-        celsiusLink.classList.add("active");
-        fahrenheitLink.classList.remove("active");
-    }
+fahrenheitLink.addEventListener("click", showfahrTemp);
+celsiusLink.addEventListener("click", showcelsiusTemp);
+currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
+  
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML= Math.round(fahrTemp);
+}
 
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
 
-    fahrenheitLink.addEventListener("click", showfahrTemp);
-    celsiusLink.addEventListener("click", showcelsiusTemp);
-    form.addEventListener("submit", handleSubmit);
-    currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
-    search("London");
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
 
 
