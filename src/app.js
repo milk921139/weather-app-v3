@@ -153,4 +153,4 @@ function handleSubmit(event) {
     currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
     search("London");
 
-})();
+
