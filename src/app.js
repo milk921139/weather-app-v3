@@ -103,12 +103,10 @@ function displayTemperature(response) {
         event.preventDefault();
         let fahrTemp = (celsiusTemp * 9) / 5 + 32;
         tempElement.innerHTML = Math.round(fahrTemp);
-        //remove the active class celsius link
         celsiusLink.classList.remove("active");
         fahrenheitLink.classList.add("active");
     }
 
-    //convert  to celsius units
     function showCelsiusTemp(event) {
         event.preventDefault();
         tempElement.innerHTML = Math.round(celsiusTemp);
@@ -132,6 +130,14 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("New York");
+
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
+
 
 fahrenheitLink.addEventListener("click", showfahrTemp);
 celsiusLink.addEventListener("click", showcelsiusTemp);
