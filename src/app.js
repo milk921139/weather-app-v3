@@ -137,17 +137,6 @@ fahrenheitLink.addEventListener("click", showfahrTemp);
 celsiusLink.addEventListener("click", showcelsiusTemp);
 currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
   
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML= Math.round(fahrTemp);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
