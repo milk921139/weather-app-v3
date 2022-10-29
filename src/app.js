@@ -132,34 +132,27 @@ form.addEventListener("submit", handleSubmit);
 search("New York");
 
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+    //convert  to farh units
+    function showFahrTemp(event) {
+        event.preventDefault();
+        let fahrTemp = (celsiusTemp * 9) / 5 + 32;
+        tempElement.innerHTML = Math.round(fahrTemp);
+        //remove the active class celsius link
+        celsiusLink.classList.remove("active");
+        fahrenheitLink.classList.add("active");
+    }
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+    //convert  to celsius units
+    function showCelsiusTemp(event) {
+        event.preventDefault();
+        tempElement.innerHTML = Math.round(celsiusTemp);
+        celsiusLink.classList.add("active");
+        fahrenheitLink.classList.remove("active");
+    }
 
-
-fahrenheitLink.addEventListener("click", showfahrTemp);
-celsiusLink.addEventListener("click", showcelsiusTemp);
-currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
-  
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML= Math.round(fahrTemp);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
-
-
+    //Add event listener
+    fahrenheitLink.addEventListener("click", showFahrTemp);
+    celsiusLink.addEventListener("click", showCelsiusTemp);
+    form.addEventListener("submit", handleSubmit);
+    currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
+    search("London");
