@@ -99,7 +99,7 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
-   function showFahrTemp(event) {
+   function showfahrTemp(event) {
         event.preventDefault();
         let fahrTemp = (celsiusTemp * 9) / 5 + 32;
         tempElement.innerHTML = Math.round(fahrTemp);
@@ -109,7 +109,7 @@ function displayTemperature(response) {
     }
 
     //convert  to celsius units
-    function showCelsiusTemp(event) {
+    function showcelsiusTemp(event) {
         event.preventDefault();
         tempElement.innerHTML = Math.round(celsiusTemp);
         celsiusLink.classList.add("active");
@@ -128,20 +128,29 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
 
-search("New York");
+    function showfahrTemp(event) {
+        event.preventDefault();
+        let fahrTemp = (celsiusTemp * 9) / 5 + 32;
+        tempElement.innerHTML = Math.round(fahrTemp);
+        //remove the active class celsius link
+        celsiusLink.classList.remove("active");
+        fahrenheitLink.classList.add("active");
+    }
 
-fahrenheitLink.addEventListener("click", showfahrTemp);
-celsiusLink.addEventListener("click", showcelsiusTemp);
-currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
-  
+    
+    function showcelsiusTemp(event) {
+        event.preventDefault();
+        tempElement.innerHTML = Math.round(celsiusTemp);
+        celsiusLink.classList.add("active");
+        fahrenheitLink.classList.remove("active");
+    }
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+    fahrenheitLink.addEventListener("click", showfahrTemp);
+    celsiusLink.addEventListener("click", showcelsiusTemp);
+    form.addEventListener("submit", handleSubmit);
+    currentLocationIcon.addEventListener("click", setTempToCurrentLocation);
+    search("London");
 
-  
+})();
