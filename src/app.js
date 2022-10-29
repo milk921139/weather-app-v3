@@ -136,11 +136,13 @@ search("New York");
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML= Math.round(fahrTemp);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
