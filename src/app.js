@@ -133,6 +133,10 @@ form.addEventListener("submit", handleSubmit);
 
 search("New York");
 
+function() {
+      let fahrenheitLink = document.querySelector("#degreesFahr");
+    let celsiusLink = document.querySelector("#degreesCelsius");
+}
 
     //convert  to farh units
     function showFahrTemp(event) {
